@@ -1,4 +1,4 @@
-#/html/body/form/div[3]/div[4]/div[2]/div/table/tbody/tr[2]/td[3]
+# /html/body/form/div[3]/div[4]/div[2]/div/table/tbody/tr[2]/td[3]
 import requests
 from lxml import etree
 from MessageSender import MessageSender
@@ -28,5 +28,6 @@ while True:
             time.sleep(__sleepTime)
             continue
         announce = tmpAnnounce.copy()
-        m.send(announce)
+        while m.send(announce) != 200:
+            continue
         time.sleep(__sleepTime)

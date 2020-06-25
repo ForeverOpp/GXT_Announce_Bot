@@ -114,4 +114,4 @@ class BarkSender(object):
             msg['title']) + "/" + parse.quote(msg['content'])
         if self.__linkMode:
             url += "?url=" + msg['link']
-        return "发送状态：" + str(requests.get(url))
+        return requests.get(url).status_code
